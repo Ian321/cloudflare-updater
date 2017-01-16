@@ -1,0 +1,18 @@
+{
+  "eMail": "",
+  "apiKey": "",
+  "interval": 1800000,
+  "body": {
+      "id": "",
+      "type": "",
+      "name": "",
+      "proxiable": true,
+      "proxied": true,
+      "ttl": 1,
+      "locked": false,
+      "zone_id": "",
+      "zone_name": "",
+      "created_on": "",
+      "data": {}
+  }
+}
