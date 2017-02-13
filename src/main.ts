@@ -19,6 +19,8 @@ function doIt() {
       body: JSON.stringify(TheBody).replace("\\n", "")
     }).then(res => {
       console.log(conf.body.name + " updated!");
+    }).catch(err => {
+      console.error(err);
     });
     console.log("Sending...");
   }).catch(err => {
