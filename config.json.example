@@ -1,7 +1,7 @@
 {
   "eMail": "",
   "apiKey": "",
-  "interval": 1800000,
+  "interval": 90000,
   "body": {
       "id": "",
       "type": "",

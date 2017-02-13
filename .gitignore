@@ -1,6 +1,7 @@
 # More
 dist
 typings
+config.json
 
 # Logs
 logs
