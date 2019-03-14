@@ -1,5 +1,3 @@
-/// <reference path="../typings/index.d.ts"/>
-
 import * as got from 'got';
 const conf = require("../config.json");
 
@@ -11,6 +9,7 @@ function doIt() {
     TheBody.content = res.body;
     TheBody.modified_on = newTime;
 
+    console.log("Sending...");
     got.put(`https://api.cloudflare.com/client/v4/zones/${conf.body.zone_id}/dns_records/${conf.body.id}`, {
       headers: {
         "X-Auth-Email": conf.eMail,
@@ -21,9 +20,12 @@ function doIt() {
     }).then(res => {
       console.log(conf.body.name + " updated!");
     }).catch(err => {
-      console.error(err);
+      if (err.statusCode === 504) {
+        // The Cloudflare API had a hiccup there.
+      } else {
+        console.error(err);
+      }
     });
-    console.log("Sending...");
   }).catch(err => {
     console.error(err);
   });

@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-updater",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/main.js",
   "scripts": {
@@ -10,5 +10,9 @@
   "license": "MIT",
   "dependencies": {
     "got": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/got": "^9.4.1",
+    "@types/node": "^11.11.3"
   }
 }
