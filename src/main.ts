@@ -4,7 +4,7 @@ const conf = require("../config.json");
 function doIt() {
   const newTime = new Date().toISOString();
   console.log("New Request: " + newTime);
-  got("https://icanhazip.com/").then(res => {
+  got("https://ipv4.icanhazip.com/").then(res => {
     var TheBody = conf.body;
     TheBody.content = res.body;
     TheBody.modified_on = newTime;
@@ -13,7 +13,7 @@ function doIt() {
     got.put(`https://api.cloudflare.com/client/v4/zones/${conf.body.zone_id}/dns_records/${conf.body.id}`, {
       headers: {
         "X-Auth-Email": conf.eMail,
-        "X-Auth-Key": conf.apiKey,
+        "Authorization": "Bearer " + conf.apiKey,
         "Content-Type": "application/json"
       },
       body: JSON.stringify(TheBody).replace("\\n", "")
